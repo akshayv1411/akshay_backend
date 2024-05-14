@@ -1,6 +1,7 @@
 package com.excel.inventory_management_portal.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class SalesOrder {
     private User user;
 
     private String customer;
-    private Date orderDate;
+    private LocalDate orderDate;
     private String status;
     private Date createdAt;
 }

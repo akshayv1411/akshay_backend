@@ -41,14 +41,14 @@ public class MainRunner {
             PurchaseOrder purchaseOrder = new PurchaseOrder();
             purchaseOrder.setUser(user);
             purchaseOrder.setSupplier("Supplier X");
-            purchaseOrder.setOrderDate((java.sql.Date) new Date());
+            purchaseOrder.setOrderDate(LocalDate.now());
             purchaseOrder.setStatus("Pending");
             purchaseOrder.setCreatedAt(null);
 
             SalesOrder salesOrder = new SalesOrder();
             salesOrder.setUser(user);
             salesOrder.setCustomer("Customer Y");
-            salesOrder.setOrderDate((java.sql.Date) new Date());
+            salesOrder.setOrderDate(LocalDate.now());
             salesOrder.setStatus("Pending");
             salesOrder.setCreatedAt(null);
             

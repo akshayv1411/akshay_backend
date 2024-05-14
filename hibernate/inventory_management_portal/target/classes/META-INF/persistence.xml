@@ -15,7 +15,7 @@ version="2.1">
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://localhost:3306/student_book" />
+				value="jdbc:mysql://localhost:3306/inventory_management_portal" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password"
 				value="Sa123" />
