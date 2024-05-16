@@ -23,7 +23,7 @@ import lombok.Setter;
 public class EmployeeTechnicalSkillsInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	private Integer technicalId;
 	private String skillType;
 	private Integer skillRating;
 	private Integer year_of_experience;

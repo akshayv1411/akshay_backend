@@ -25,7 +25,7 @@ import lombok.Setter;
 public class EmployeeExperienceInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	private Integer experienceId;
 	private String companyName;
 	private LocalDate date_of_joining;
 	private String designation;

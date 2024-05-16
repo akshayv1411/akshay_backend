@@ -22,7 +22,7 @@ import lombok.Setter;
 public class EmployeeAdressInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	private Integer employeeId;
 	private String addressType;
 	private Integer doorNo;
 	private String street;

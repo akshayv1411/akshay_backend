@@ -25,7 +25,7 @@ import lombok.Setter;
 public class EmployeeContactInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	private Integer employeeId;
 	private String contactType;
 	private Integer contactNo;
 
