@@ -2,8 +2,12 @@ package com.excel.lms.entity;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.excel.lms.enums.Address;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,8 +35,9 @@ public class EmployeeAddress {
 	@Column(name = "address_id")
 	private Integer addressId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "address_type")
-	private String addressType;
+	private Address addressType;
 	
 	@Column(name = "door_no")
 	private String doorNo;
@@ -40,7 +45,7 @@ public class EmployeeAddress {
 	private String locality;
 	private String city;
 	private String state;
-	private Integer pinCode;
+	private String pinCode;
 	private String landMark;
 	
 	@ManyToOne

@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "employee_technical_info")
 public class EmployeeTechnicalSkill {
 	
@@ -37,7 +39,7 @@ public class EmployeeTechnicalSkill {
 	private String skillRating;
 	
 	@Column(name = "years_of_experience")
-	private Double yearOfExperience;
+	private Integer yearOfExperience;
 	
 	@ManyToMany
 	@JoinColumn(name = "employees_id")

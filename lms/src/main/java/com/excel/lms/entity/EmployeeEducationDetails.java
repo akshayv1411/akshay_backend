@@ -39,14 +39,15 @@ public class EmployeeEducationDetails {
 	@Column(name = "education_id")
 	private Integer educationId;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "education_type")
-	private String educationType;
+	private Education educationType;
 	
 	@Column(name = "year_of_passing")
 	private LocalDate yearOfPassing;
-	private Double Percentage;
+	private Double percentage;
 	private String instituteName;
-	private String univercityName;
+	private String universityName;
 	private String specialization;
 	private String state;
 	

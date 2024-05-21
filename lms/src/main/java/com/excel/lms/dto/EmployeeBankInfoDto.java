@@ -1,5 +1,7 @@
 package com.excel.lms.dto;
 
+import com.excel.lms.enums.Account;
+
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +18,7 @@ public class EmployeeBankInfoDto {
 	private String employeeId;
 	private Long accountNo;
 	private String bankName;
-	private String accountType;
+	private Account accountType;
 	private String ifscCode;
 	private String branch;
 	private String state;

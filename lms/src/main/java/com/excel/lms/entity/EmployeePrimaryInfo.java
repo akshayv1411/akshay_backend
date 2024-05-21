@@ -71,11 +71,12 @@ public class EmployeePrimaryInfo {
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employee")
 	private List<EmployeeEducationDetails> education;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employee")
+	private List<EmployeeContactInfo> contactInfo;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "employees")
 	private List<EmployeeTechnicalSkill> employeeSkill;
 
-	@OneToMany(mappedBy = "employee")
-	private List<EmployeeContactInfo> contactInfo;
 
 }

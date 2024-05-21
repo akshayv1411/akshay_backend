@@ -1,8 +1,12 @@
 package com.excel.lms.entity;
 
+import com.excel.lms.enums.Account;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,8 +38,9 @@ public class EmployeeBankInfo {
 	private Long accountNo;
 	private String bankName;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "account_type")
-	private String accountType;
+	private Account accountType;
 	
 	@Column(name = "ifsc_code")
 	private String ifscCode;
