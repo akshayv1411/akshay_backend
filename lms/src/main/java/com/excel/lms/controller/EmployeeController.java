@@ -24,7 +24,7 @@ import com.excel.lms.service.EmployeeService;
 
 
 @RestController
-@RequestMapping(path = "/api", method = {RequestMethod.POST, RequestMethod.PUT})
+//@RequestMapping(path = "/api", method = {RequestMethod.POST, RequestMethod.PUT})
 public class EmployeeController {
 	
 	@Autowired
