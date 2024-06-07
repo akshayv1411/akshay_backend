@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.excel.lms.dto.EmployeeAddressDto;
 import com.excel.lms.dto.EmployeeAddressListDto;
 import com.excel.lms.dto.EmployeeBankInfoDto;
 import com.excel.lms.dto.EmployeeContactInfoDto;
@@ -151,6 +152,16 @@ public class BaseController {
 				.data(getall)
 				.isError(false)
 				.message("all eductaion info fetched successfully")
+				.build());
+	}
+	
+	@GetMapping(path = "/getAllAddressInfo")
+	public ResponseEntity<CommonResponse<List<EmployeeAddressDto>>> getallAdressInfo(){
+		List<EmployeeAddressDto> getall = employeeService.getallAdressInfo();
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(CommonResponse.<List<EmployeeAddressDto>>builder()
+				.data(getall)
+				.isError(false)
+				.message("all employee adress information fetched")
 				.build());
 	}
 //---------------------------------------------------------------------------------------------------------------------------------------------------	

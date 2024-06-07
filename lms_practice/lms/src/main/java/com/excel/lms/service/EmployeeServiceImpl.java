@@ -8,6 +8,7 @@ import org.hibernate.query.NativeQuery.ReturnableResultNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.excel.lms.dto.EmployeeAddressDto;
 import com.excel.lms.dto.EmployeeAddressListDto;
 import com.excel.lms.dto.EmployeeBankInfoDto;
 import com.excel.lms.dto.EmployeeContactInfoDto;
@@ -272,7 +273,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 				.location(h.getLocation())
 				.build()).toList();
 	}
-
+	@Override
+	public List<EmployeeAddressDto> getallAdressInfo() {
+		return addressRepository.findAll().stream().map(i -> EmployeeAddressDto.builder()
+				.addressType(i.getAddressType())
+				.street(i.getStreet())
+				.city(i.getCity())
+				.doorNo(i.getDoorNo())
+				.locality(i.getLocality())
+				.state(i.getState())
+				.pinCode(i.getPinCode())
+				.landMark(i.getLandMark())
+				.build()).toList();
+	}
+	
 	
 	@Override
 	public EmployeeSecondaryInfoDto updateSecondaryInfo(EmployeeSecondaryInfoDto dto) {
@@ -296,6 +310,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			}
 		return null;
 	}
+
 
 
 	

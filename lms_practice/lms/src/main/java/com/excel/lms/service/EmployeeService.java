@@ -2,6 +2,7 @@ package com.excel.lms.service;
 
 import java.util.List;
 
+import com.excel.lms.dto.EmployeeAddressDto;
 import com.excel.lms.dto.EmployeeAddressListDto;
 import com.excel.lms.dto.EmployeeBankInfoDto;
 import com.excel.lms.dto.EmployeeContactInfoDto;
@@ -44,6 +45,9 @@ public interface EmployeeService {
 	public List<EmployeeEducationDetailsDto> getAllEducationInfo();
 
 	public List<EmployeeExperienceInfoDto> getAllExperienceInfo();
+
+	public List<EmployeeAddressDto> getallAdressInfo();
+	
 	
 	
 }
