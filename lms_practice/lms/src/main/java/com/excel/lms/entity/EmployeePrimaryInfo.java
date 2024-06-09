@@ -78,5 +78,6 @@ public class EmployeePrimaryInfo {
 	
 	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "employeePrimaryInfos")
 	private List<EmployeeTechnicalSkill>employeeTechnicalSkills;
+
 	
 }
