@@ -66,6 +66,53 @@ const EmployeeForm = () => {
     }
   };
 
+  const handleDelete = async (employeeId) => {
+    try {
+      const response = await axios.delete(`http://localhost:8080/api/delete/pinfo`, {
+        data: { employeeId }
+      });
+      console.log("Guest deleted successfully:", response.data);
+      const updatedResponse = await axios.get('http://localhost:8080/api/getAllPrimaryInfo');
+      setEmployeeData(updatedResponse.data.data);
+      setResponseMessage(`Success: Employee deleted successfully`);
+    } catch (error) {
+      console.error("Error deleting employee:", error);
+      setResponseMessage('Error: Unable to delete employee');
+    }
+  };
+
+  const handleUpdate = (employeeId) => {
+    const selectedEmployee = employeeData.find(emp => emp.employeeId === employeeId);
+    setFormData(selectedEmployee);
+  };
+  
+  const UpdateEmployee = async () => {
+    if (formData) {
+      try {
+        await axios.put('http://localhost:8080/api/pinfo/update', formData);
+        const updatedResponse = await axios.get('http://localhost:8080/api/getAllPrimaryInfo');
+        setEmployeeData(updatedResponse.data.data);
+        console.log("Employee updated successfully");
+      } catch (error) {
+        console.error("Error updating employee:", error);
+      }
+    }
+  };
+  const ClearFields = () => {
+    setFormData({
+      employeeId: "",
+      employeeName: "",
+      dateOfJoining: "",
+      dateOfBirth: "",
+      email: "",
+      designation: "",
+      gender: "",
+      nationality: "",
+      employeeStatus: ""
+    });
+  };
+  
+  
   return (
     <Container>
       <Row>
@@ -158,11 +205,18 @@ const EmployeeForm = () => {
               >
                 <option value="">Select Status</option>
                 <option value="ACTIVE">Active</option>
-                <option value="INACTIVE">Inactive</option>
+                <option value="TERMINATE">Terminate</option>
+                <option value="ABSCOND">ABSCOND</option>
               </Form.Control>
             </Form.Group>
             <Button variant="primary" type="submit" style={{ marginTop: '10px' }}>
               Submit
+            </Button>
+            <Button style={{ marginLeft: '10px' , marginTop: '10px'}} onClick={UpdateEmployee}>
+              Update
+            </Button>
+            <Button variant="primary"  style={{ marginTop: '10px' , marginLeft: '10px'}}onClick={ClearFields}>
+              Clear
             </Button>
             {responseMessage && <p style={{ marginTop: '10px' }}>{responseMessage}</p>}
           </Form>
@@ -180,6 +234,8 @@ const EmployeeForm = () => {
                 <th>Gender</th>
                 <th>Nationality</th>
                 <th>Employee Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -193,7 +249,14 @@ const EmployeeForm = () => {
                   <td>{employee.designation}</td>
                   <td>{employee.gender}</td>
                   <td>{employee.nationality}</td>
-                  <td>{employee.employeeStatus}</td>
+                  <td>{employee.employeeStatus}</td>  
+
+                  <td>
+                    <Button variant="danger" onClick={() => handleDelete(employee.employeeId)}>Delete</Button>
+                  </td>
+                  <td>
+                    <Button variant="danger" onClick={() => handleUpdate(employee.employeeId)}>Update</Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
