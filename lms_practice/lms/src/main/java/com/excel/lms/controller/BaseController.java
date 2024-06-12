@@ -8,14 +8,12 @@ import org.springframework.boot.autoconfigure.info.ProjectInfoProperties.Build;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.excel.lms.dto.EmployeeAddressDto;
@@ -35,16 +33,14 @@ import com.excel.lms.response.CommonResponse;
 import com.excel.lms.service.EmployeeService;
 import com.fasterxml.jackson.core.ErrorReportConfiguration.Builder;
 
-
-@CrossOrigin
 @RestController
-@RequestMapping(path="/api/")
+@RequestMapping(path="/api/v1/employee")
 public class BaseController {
 
 	@Autowired
 	private EmployeeService employeeService;
 
-	@PostMapping(path= "pinfo")
+	@PostMapping(path= "/pinfo")
 	public ResponseEntity<CommonResponse<String>> postPrimaryInfo(@RequestBody EmployeePrimaryInfoDto dto){
 		String save = employeeService.savePrimary(dto);
 		return ResponseEntity.status(HttpStatus.CREATED)
@@ -190,13 +186,3 @@ public class BaseController {
 	}
 }
 //-------------------------------------------------------------------------------------------------------------------------------------------------	
-
-	@DeleteMapping(path = "delete/pinfo")
-	public ResponseEntity<CommonResponse<String>> deletePinfo(@RequestBody EmployeePrimaryInfoDto dto){
-		String delete = employeeService.deletePinfo(dto);
-		return ResponseEntity.status(HttpStatus.ACCEPTED).body(CommonResponse.<String>builder()
-				.data(delete)
-				.isError(false)
-				.message("employee primary info deleted succsessfully")
-				.build());
-	}

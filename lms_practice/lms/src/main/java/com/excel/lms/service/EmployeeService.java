@@ -38,8 +38,6 @@ public interface EmployeeService {
 
 	public String deleteSecondaryInfo(EmployeeSecondaryInfoDto dto);
 
-	public String deletePinfo(EmployeePrimaryInfoDto dto);
-
 	public List<EmployeePrimaryInfoDto> getAllPrimaryInfo();
 
 	public List<EmployeeContactInfoDto> getAllContactInfo();

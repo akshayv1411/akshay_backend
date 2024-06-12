@@ -310,17 +310,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 			}
 		return null;
 	}
-	
-	@Override
-	public String deletePinfo(EmployeePrimaryInfoDto dto) {
-		Optional<EmployeePrimaryInfo> employeePInfo = employeeRepository.findByEmployeeId(dto.getEmployeeId());
-		if(employeePInfo.isPresent()) {
-			EmployeePrimaryInfo employeePrimary = employeePInfo.get(); 
-			secondaryRepository.delete(employeePrimary);
-			return "primary info deleted successfully";
-			}
-		return null;
-	}
 
 
 
