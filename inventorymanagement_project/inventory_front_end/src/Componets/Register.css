@@ -1,0 +1,109 @@
+/* Register.css */
+.registration-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://th.bing.com/th/id/OIP.efcZM-sN9esLoBXpgkPRDgHaD7?w=334&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7');
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Ensure the background is behind the content */
+}
+
+.registration-container {
+  position:static;
+  max-width: 100%;
+  width: 90%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(249, 249, 249, 0.9); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+}
+
+@media (min-width: 480px) {
+  .registration-container {
+    max-width: 400px;
+  }
+}
+
+.registration-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333; 
+}
+
+.registration-container form label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333; 
+}
+
+.registration-container form input[type="text"],
+.registration-container form input[type="email"],
+.registration-container form input[type="password"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.registration-container form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.registration-container form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .registration-container {
+    padding: 15px;
+  }
+
+  .registration-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .registration-container form input,
+  .registration-container form button {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registration-container {
+    padding: 10px;
+  }
+
+  .registration-container h2 {
+    font-size: 1rem;
+  }
+
+  .registration-container form input,
+  .registration-container form button {
+    font-size: 0.75rem;
+  }
+}
